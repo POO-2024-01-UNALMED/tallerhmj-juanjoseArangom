@@ -16,8 +16,19 @@ public class Portero extends Futbolista{
         this.dorsal = 1;
     }
 
-    public int compareTo(Portero f) {
-        return this.golesRecibidos - f.golesRecibidos;
+    @Override
+    public int compareTo(Futbolista f) {
+        if (f instanceof Portero) {
+            Portero j = (Portero) f;
+            if (this.getGolesRecibidos() - j.getGolesRecibidos() >= 0) {
+                return this.getGolesRecibidos() - j.getGolesRecibidos();
+            }
+            else {
+                return -1*(this.getGolesRecibidos() - j.getGolesRecibidos());
+            }
+        } else {
+            return this.getGolesRecibidos();
+        }
     }
 
     @Override
@@ -28,5 +39,21 @@ public class Portero extends Futbolista{
 
     public boolean jugarConLasManos() {
         return true;
+    }
+
+    public short getGolesRecibidos() {
+        return golesRecibidos;
+    }
+
+    public void setGolesRecibidos(short golesRecibidos) {
+        this.golesRecibidos = golesRecibidos;
+    }
+
+    public byte getDorsal() {
+        return dorsal;
+    }
+
+    public void setDorsal(byte dorsal) {
+        this.dorsal = dorsal;
     }
 }

@@ -40,11 +40,6 @@ public abstract class Futbolista implements Comparable<Futbolista> {
     public abstract boolean jugarConLasManos();
 
     @Override
-    public int compareTo(Futbolista f) {
-        return this.edad - f.getEdad();
-    }
-
-    @Override
     public boolean equals(Object o) {
         if (o instanceof Futbolista) {
             Futbolista f = (Futbolista) o;
@@ -52,6 +47,7 @@ public abstract class Futbolista implements Comparable<Futbolista> {
         }
         return false;
     }
+
 
     @Override
     public String toString() {
